@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:settings_mod/Theme_provider.dart';
 import 'package:settings_mod/about_page.dart';
+import 'package:settings_mod/home.dart';
 import 'package:settings_mod/m_f_a.dart';
 
 class Settings_page extends StatefulWidget {
@@ -20,61 +21,58 @@ class _Settings_pageState extends State<Settings_page> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        title: Text(
-          "Settings",
-          style: GoogleFonts.acme(),
-        ),
-      ),
       body: Container(
         child: Column(
           children: [
-            // Padding(
-            //   padding: const EdgeInsets.only(top: 20),
-            //   child: Row(
-            //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //     children: [
-            //       Padding(
-            //         padding: const EdgeInsets.only(left: 16, right: 16),
-            //         child: Text(
-            //           "Notification",
-            //           style: GoogleFonts.acme(fontSize: 20),
-            //         ),
-            //       ),
-            //       Switch(
-            //           value: perm,
-            //           onChanged: (newperm) {
-            //             setState(() {
-            //               perm = newperm;
-            //             });
-            //           })
-            //     ],
-            //   ),
-            // ),
-            Padding(
-              padding: const EdgeInsets.only(top: 20),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 16, right: 16),
-                    child: Padding(
+            Container(
+              child: Padding(
+                padding: const EdgeInsets.only(top: 40),
+                child: Row(
+                  children: [
+                    Padding(
                       padding: const EdgeInsets.only(left: 16, right: 16),
-                      child:
-                          Text("M-F-A", style: GoogleFonts.acme(fontSize: 20)),
+                      child: InkWell(
+                          onTap: () {
+                            Get.to(home());
+                          },
+                          child: Icon(Icons.arrow_back)),
                     ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 16),
+                      child: Text(
+                        "Settings",
+                        style: GoogleFonts.acme(
+                            fontSize: 20, fontWeight: FontWeight.w100),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            InkWell(
+              onTap: () {
+                Get.to(
+                  m_f_a(),
+                );
+              },
+              child: Container(
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 16, right: 16),
+                        child: Text("M-F-A",
+                            style: GoogleFonts.acme(fontSize: 20)),
+                      ),
+                    ],
                   ),
-                  InkWell(
-                      onTap: () {
-                        Get.to(m_f_a());
-                      },
-                      child: Icon(Icons.arrow_forward_ios, color: Colors.black))
-                ],
+                ),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 40),
+              padding: const EdgeInsets.only(top: 20),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -98,22 +96,26 @@ class _Settings_pageState extends State<Settings_page> {
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 40),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 16, right: 16),
-                    child: Text("About App",
-                        style: GoogleFonts.acme(fontSize: 20)),
+            InkWell(
+              onTap: () {
+                Get.to(
+                  About_page(),
+                );
+              },
+              child: Container(
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 16, right: 16),
+                        child: Text("About App",
+                            style: GoogleFonts.acme(fontSize: 20)),
+                      ),
+                    ],
                   ),
-                  InkWell(
-                      onTap: () {
-                        Get.to(About_page());
-                      },
-                      child: Icon(Icons.arrow_forward_ios, color: Colors.black))
-                ],
+                ),
               ),
             ),
             Padding(

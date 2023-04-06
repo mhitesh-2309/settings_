@@ -15,20 +15,38 @@ class _homeState extends State<home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        title: Text(
-          "Home",
-          style: GoogleFonts.acme(),
+      body: Container(
+        child: Column(
+          children: [
+            Container(
+              child: Padding(
+                padding: const EdgeInsets.only(top: 40),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 16, right: 16),
+                      child: Text(
+                        "Home",
+                        style: GoogleFonts.acme(
+                            fontSize: 20, fontWeight: FontWeight.w100),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 16),
+                      child: InkWell(
+                        onTap: () {
+                          Get.to(Settings_page());
+                        },
+                        child: Icon(Icons.settings),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
         ),
-        actions: <Widget>[
-          IconButton(
-            onPressed: () {
-              Get.to(Settings_page());
-            },
-            icon: Icon(Icons.settings),
-          )
-        ],
       ),
     );
   }
