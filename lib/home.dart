@@ -16,6 +16,7 @@ class _homeState extends State<home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 0,
         title: Text(
           "Home",
           style: GoogleFonts.acme(),
